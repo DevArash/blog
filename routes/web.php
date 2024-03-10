@@ -37,6 +37,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('backend.post.index')
             ->with('pageName','Post');
     })->name('dashboard.post');
+
+    Route::get('/dashbord/posts/create',function(){
+        return view('backend.post.create')
+            ->with('pageName','Create Post');
+    })->name('dashboard.post.create');
 });
 
 
