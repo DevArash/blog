@@ -28,7 +28,7 @@ Route::get('/contact', function(){
 
 // Backend Routs
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('backend.dashboard.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
