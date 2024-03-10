@@ -17,7 +17,13 @@ use Illuminate\Support\Facades\Route;
 // Frontend Routs
 Route::get('/',[homeController::class,'index'])->name('home');
 
+Route::get('/about', function(){
+    return view('frontend.about.index');
+})->name('about');
 
+Route::get('/contact', function(){
+    return view('frontend.contact.index');
+})->name('contact');
 
 
 // Backend Routs
