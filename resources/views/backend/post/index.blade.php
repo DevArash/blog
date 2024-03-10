@@ -60,8 +60,5 @@
 
 @endsection
 
-<!-- set top page address bar  -->
+<!-- set top page address bar and active button  -->
 @section('pageName') {{$pageName}} @endsection
-
-<!-- for change buttom when actived  -->
-@section('active') {{'bg-gradient-primary'}} @endsection
