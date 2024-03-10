@@ -21,11 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
-  <title>
-    Brand
-    |
-    Dashboard
-  </title>
+  <title>Brand</title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
@@ -35,6 +31,7 @@
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
   <!-- Material Icons -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- CSS Files -->
   <link id="pagestyle" href="{{asset("backend/css/material-dashboard.css?v=3.1.0")}}" rel="stylesheet" />
   <!-- Nepcha Analytics (nepcha.com) -->
@@ -55,13 +52,24 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="#">
+          <a class="nav-link text-white @if ($pageName == 'Dashboard')bg-gradient-primary @endif" href="{{route('dashboard')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Post</h6>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white @yield('active')" href="{{route('dashboard.post')}}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-symbols-outlined opacity-10">post</i>
+            </div>
+            <span class="nav-link-text ms-1">Posts List</span>
+          </a>
+        </li> 
       </ul>
     </div>
   </aside>
@@ -72,9 +80,8 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard / @yield('pageName')</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
         </nav>
 
 
@@ -96,17 +103,12 @@
     </nav>
     <!-- End Navbar -->
    
-      <div class="row m-auto">
-        <div class="col-lg-12 mb-md-auto ">
-          <div class="card">
-           
+
 
               @yield("content")
 
          
-          </div>
-        </div>
-      </div>
+
       <footer class="footer fixed-bottom text-center">
               <div class="copyright text-center text-sm text-muted mb-lg-3">
                 made with <i class="fa fa-heart"></i> by
