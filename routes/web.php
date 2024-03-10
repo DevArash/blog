@@ -27,9 +27,18 @@ Route::get('/contact', function(){
 
 
 // Backend Routs
-Route::get('/dashboard', function () {
-    return view('backend.dashboard.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard',function(){
+        return view('backend.dashboard.index')
+            ->with('pageName','Dashboard');
+    })->name('dashboard');
+
+    Route::get('/dashbord/posts',function(){
+        return view('backend.post.index')
+            ->with('pageName','Post');
+    })->name('dashboard.post');
+});
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
