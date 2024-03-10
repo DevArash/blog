@@ -37,6 +37,8 @@
   <!-- Nepcha Analytics (nepcha.com) -->
   <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
   <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+
+  <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -63,11 +65,19 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Post</h6>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white @yield('active')" href="{{route('dashboard.post')}}">
+          <a class="nav-link text-white @if ($pageName == 'Post')bg-gradient-primary @endif" href="{{route('dashboard.post')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-symbols-outlined opacity-10">post</i>
             </div>
             <span class="nav-link-text ms-1">Posts List</span>
+          </a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link text-white @if ($pageName == 'Create Post')bg-gradient-primary @endif" href="{{route('dashboard.post.create')}}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-symbols-outlined opacity-10">post</i>
+            </div>
+            <span class="nav-link-text ms-1">Create Post</span>
           </a>
         </li> 
       </ul>
@@ -121,5 +131,16 @@
 
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{asset("backend/js/material-dashboard.min.js?v=3.1.0")}}"></script>
+
+  <script>
+    var options = {
+      filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
+      filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
+      filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
+      filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
+    };
+  </script>
+  <script>CKEDITOR.replace('my-editor', options); </script>
+
 </body>
 </html>
