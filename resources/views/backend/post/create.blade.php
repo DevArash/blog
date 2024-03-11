@@ -11,46 +11,51 @@
       </div>
     </div>
     <div class="card-body p-3">
-      <form>
+      <form action="{{route('dashboard.post.store')}}" method="post" enctype="multipart/form-data">
+        @csrf
         <div class="row">
           <div class="col">
             <div class="input-group input-group-static mb-4">
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>select topic</option>
+              <select name="topic" class="form-control" id="exampleFormControlSelect1">
+                <option value="">select topic</option>
                 <option>2</option>
               </select>
+              @error('topic')
+                <p class="text-danger">{{$message}}</p>
+              @enderror
             </div>
           </div>
           <div class="col">
-            <div class="input-group input-group-static mb-4">
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>select author</option>
-                <option>2</option>
-              </select>
+            <div>
+              <label for="formFileSm" class="form-label"><small>Image</small></label>
+              <input name="image" class="form-control form-control-sm" id="formFileSm" accept="image/png, image/jpeg" type="file" />
+              @error('image')
+                <p class="text-danger">{{$message}}</p>
+              @enderror
             </div>
           </div>
           <div class="row">
             <div class="col">
               <div class="input-group input-group-dynamic mb-4">
-                <input type="text" class="form-control" placeholder="Title" aria-label="Username" aria-describedby="basic-addon1">
-              </div>
-            </div>
-            <div class="col">
-              <div>
-                <label for="formFileSm" class="form-label"><small>Image</small></label>
-                <input class="form-control form-control-sm" id="formFileSm" type="file" />
+                <input name="title" type="text" class="form-control" placeholder="Title" aria-label="Username" aria-describedby="basic-addon1">
+              @error('title')
+                <p class="text-danger">{{$message}}</p>
+              @enderror
               </div>
             </div>
           </div>
           <div class="form-group">
-            <label for="description">Article</label>
-            <textarea name="description" class="form-control" id="my-editor" placeholder="Enter post description" cols="30" rows="10"></textarea>
+            <label for="article">Article</label>
+            <textarea name="article" class="form-control" id="my-editor" cols="30" rows="10"></textarea>
+              @error('article')
+                <p class="text-danger">{{$message}}</p>
+              @enderror
           </div>
         </div>
+        <div class="col-6 text-left mt-4">
+          <button type="submit" class="btn bg-gradient-dark mb-0"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;Save</button>
+        </div>
       </form>
-      <div class="col-6 text-left mt-4">
-        <a class="btn bg-gradient-dark mb-0" href="javascript:;"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;Save</a>
-      </div>
     </div>
   </div>
 </div>
