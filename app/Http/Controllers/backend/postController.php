@@ -1,0 +1,95 @@
+<?php
+
+namespace App\Http\Controllers\backend;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\post;
+
+class postController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+
+        return view('backend.post.index')
+            ->with("posts", Post::orderBy("updated_at","DESC")->simplePaginate(10))
+            ->with('pageName','Post');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        return view('backend.post.edit')
+            ->with('pageName','Edit Post')
+            ->with('post',post::findOrFail($id));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $post = post::findOrFail($id);
+
+        $this->validate($request, [
+                'title'=> 'required|string|max:50',
+                'article'=>'required'        
+            ]);
+        
+        $post->update([
+            'image'=> $request->image || $post->image,
+            'topic'=> $request->topic,
+            'title'=>$request->title,
+            'article'=> $request->article,
+        ]);
+
+        return redirect()->route('dashboard.post');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+
+
+    public function delete(Request $request, $id){
+        $post = Post::find($id);
+        $post->delete();
+
+        return redirect()->route('dashboard.post');
+
+    } 
+
+    public function destroy(string $id)
+    {
+        //
+    }
+}
