@@ -22,8 +22,8 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($posts as $post)
                     <tr>
-                      @foreach ($posts as $post)
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
@@ -47,8 +47,8 @@
                       <td class="align-middle">
                         <a href="{{route('dashboard.post.edit', [$post->id])}}" class="badge badge-sm bg-gradient-success">Edit</a>
                       </td>
-                      @endforeach
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
