@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\backend\aboutController;
 use App\Http\Controllers\backend\postController;
 use App\Http\Controllers\frontend\homeController;
 use App\Http\Controllers\ProfileController;
@@ -35,6 +36,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             ->with('pageName','Dashboard');
     })->name('dashboard');
 
+
+    // Post Routes
     // load posts list page
     Route::get('/dashbord/posts',[postController::class,'index'])->name('dashboard.post');
 
@@ -52,6 +55,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // create post
     Route::post('/dashboard/posts/store',[postController::class,'store'])->name('dashboard.post.store');
+
+
+    // About Routes
+    // load about page
+    Route::get('/dashboard/about',[aboutController::class,'index'])->name('dashboard.about');
+
+    // create about
+    Route::post('/dashboard/about/create',[aboutController::class,'store'])->name('dashboard.about.store');
+
+    // update about
+    Route::put('/dashbord/about/edit',[aboutController::class,'update'])->name('dashboard.about.update');
 
 });
 
