@@ -23,6 +23,7 @@
                   </thead>
                   <tbody>
                     <tr>
+                      @foreach ($posts as $post)
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
@@ -35,20 +36,18 @@
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">Manager</p>
-                        <p class="text-xs text-secondary mb-0">Organization</p>
+                        <p class="text-xs font-weight-bold mb-0">{{$post->topic}}</p>
                       </td>
                       <td class="align-middle text-center text-sm">
-                        <span class="text-xs font-weight-bold mb-0">Online</span>
+                        <span class="text-xs font-weight-bold mb-0">{{$post->title}}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
+                        <span class="text-secondary text-xs font-weight-bold">{{$post->updated_at}}</span>
                       </td>
                       <td class="align-middle">
-                        <a href="javascript:;" class="badge badge-sm bg-gradient-success">
-                          More
-                        </a>
+                        <a href="{{route('dashboard.post.edit', [$post->id])}}" class="badge badge-sm bg-gradient-success">Edit</a>
                       </td>
+                      @endforeach
                     </tr>
                   </tbody>
                 </table>
