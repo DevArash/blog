@@ -24,11 +24,9 @@
             </div>
           </div>
           <div class="col">
-            <div class="input-group input-group-static mb-4">
-              <select name="author" class="form-control" id="exampleFormControlSelect1">
-                <option>select author</option>
-                <option>2</option>
-              </select>
+            <div>
+              <label for="formFileSm" class="form-label"><small>{{$post->image}}</small></label>
+              <input name="image" class="form-control form-control-sm" id="formFileSm" type="file" accept="image/png, image/jpeg"/>
             </div>
           </div>
           <div class="row">
@@ -38,12 +36,6 @@
                 @error('title')
                   <p class="text-danger">{{$message}}</p>
                 @enderror
-              </div>
-            </div>
-            <div class="col">
-              <div>
-                <label for="formFileSm" class="form-label"><small>{{$post->image}}</small></label>
-                <input name="image" class="form-control form-control-sm" id="formFileSm" type="file" accept="image/png, image/jpeg"/>
               </div>
             </div>
           </div>
