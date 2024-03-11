@@ -47,12 +47,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // soft delete selected post 
     Route::get('/dashboard/posts/edit/{id}/delete',[postController::class,'delete'])->name('dashboard.post.delete');
 
+    // load create post page
+    Route::get('/dashboard/posts/create',[postController::class,'create'])->name('dashboard.post.create');
 
-
-    Route::get('/dashbord/posts/create',function(){
-        return view('backend.post.create')
-            ->with('pageName','Create Post');
-    })->name('dashboard.post.create');
+    // create post
+    Route::post('/dashboard/posts/store',[postController::class,'store'])->name('dashboard.post.store');
 
 });
 
