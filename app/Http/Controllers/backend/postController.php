@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\post;
+use Illuminate\Support\Str;
 
 class postController extends Controller
 {
@@ -24,7 +25,8 @@ class postController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.post.create')
+            ->with('pageName','Create Post');
     }
 
     /**
@@ -32,7 +34,21 @@ class postController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            "topic"=> "required|string",
+            "title"=> "required|string|max:50",
+            "image"=>"required",
+            "article"=>"required"        
+        ]);
+        Post::create([
+            "topic"=>$request->topic,
+            "title"=>$request->title,
+            "image"=>$request->image,
+            "article"=>$request->article,
+        ]);
+
+
+        return redirect()->route('dashboard.post');
     }
 
     /**
