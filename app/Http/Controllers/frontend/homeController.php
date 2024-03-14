@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\post;
+use App\Models\setting;
 use Illuminate\Http\Request;
 
 class homeController extends Controller
@@ -12,7 +14,9 @@ class homeController extends Controller
      */
     public function index()
     {
-        return view('frontend.home.index');
+        return view('frontend.home.index')
+            ->with('settings', setting::first())
+            ->with('posts', post::simplePaginate(5));
     }
 
     /**
