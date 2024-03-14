@@ -56,6 +56,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/posts/create',[postController::class,'create'])->name('dashboard.post.create');
     // create post
     Route::post('/dashboard/posts/store',[postController::class,'store'])->name('dashboard.post.store');
+    // show trashed posts
+    Route::get('/dashboard/posts/trashed',[postController::class,'trash'])->name('dashboard.post.trashed');
+    // restore trashed post
+    Route::get('/dashboard/posts/trashed/restore/{id}',[postController::class,'restore'])->name('dashboard.post.trashed.restore');
+    // delete trashed post
+    Route::get('/dashboard/posts/trashed/destroy/{id}',[postController::class,'destroy'])->name('dashboard.post.trashed.destroy');
 
 
     // About Routes
