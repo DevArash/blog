@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us"><head>
   <meta charset="utf-8">
-  <title>Reader | Hugo Personal Blog Template</title>
+  <title>{{$settings->brandName}}</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -33,7 +33,7 @@
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-white">
       <a class="navbar-brand order-1" href="index.html">
-        <img class="img-fluid" width="100px" src="{{asset("frontend/images/logo.png")}}"
+        <img class="img-fluid" width="100px" src="{{$settings->logo}}"
           alt="Reader | Hugo Personal Blog Template">
       </a>
       <div class="collapse navbar-collapse text-center order-lg-2 order-3" id="navigation">
@@ -80,11 +80,10 @@
     <div class="container">
         <div class="col-md-auto text-md-center text-center mb-auto">
             <ul class="list-inline footer-list mb-0">
-              <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="ti-twitter-alt"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="ti-github"></i></a></li>
-              <li class="list-inline-item"><a href="#"><i class="ti-youtube"></i></a></li>
+              <li class="list-inline-item"><a href="{{$settings->facebook}}"><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="{{$settings->twitter}}"><i class="ti-twitter-alt"></i></a></li>
+              <li class="list-inline-item"><a href="{{$settings->linkedin}}"><i class="ti-linkedin"></i></a></li>
+              <li class="list-inline-item"><a href="{{$settings->youtube}}"><i class="ti-youtube"></i></a></li>
             </ul>
         </div>
     </div>
