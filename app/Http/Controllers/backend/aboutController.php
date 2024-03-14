@@ -39,7 +39,7 @@ class aboutController extends Controller
     {
         $this->validate($request, [
             "image"=>"required",
-            "title"=> "required|string|max:50",
+            "title"=> "required|string|max:70",
             "article"=>"required"        
         ]);
         about::create([
@@ -76,7 +76,7 @@ class aboutController extends Controller
         $about = about::all()->first();
 
         $this->validate($request, [
-            "title"=> "required|string|max:50",
+            "title"=> "required|string|max:70",
             "article"=>"required"          
         ]);
         
