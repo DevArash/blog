@@ -4,6 +4,7 @@ use App\Http\Controllers\backend\aboutController;
 use App\Http\Controllers\backend\postController;
 use App\Http\Controllers\frontend\homeController;
 use App\Http\Controllers\ProfileController;
+use App\Models\about;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,12 +18,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // Frontend Routs
+// load home page
 Route::get('/',[homeController::class,'index'])->name('home');
 
+// load about page
 Route::get('/about', function(){
-    return view('frontend.about.index');
+    return view('frontend.about.index')
+        ->with('data', about::first());
 })->name('about');
 
+// load contact page
 Route::get('/contact', function(){
     return view('frontend.contact.index');
 })->name('contact');
