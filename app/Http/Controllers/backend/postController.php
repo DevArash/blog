@@ -106,6 +106,21 @@ class postController extends Controller
 
     public function destroy(string $id)
     {
-        //
+        $post = post::withTrashed()->where("id", $id)->first();
+        $post->forceDelete();
+        return redirect(route("dashboard.post.trashed"));
+    }
+
+    public function trash(){
+        return view("backend.post.trashed")
+            ->with("posts", Post::onlyTrashed()->orderBy("deleted_at","DESC")->simplePaginate(10))
+            ->with('pageName', 'Trashed Post');
+    }
+
+    public function restore($id){
+        $post = post::withTrashed()->where("id", $id)->first();
+        $post->restore();
+
+        return redirect(route("dashboard.post.trashed"));
     }
 }
