@@ -68,13 +68,13 @@
     <div class="row align-items-center justify-content-center">
       <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
         <div class="image-wrapper">
-          <img class="img-fluid w-100" src="{{asset("frontend/images/about-us-1.jpg")}}">
+          <img class="img-fluid w-100" src="{{asset($data->image)}}">
         </div>
       </div>
       <div class="col-lg-5 col-md-6">
         <div class="content pl-lg-3 pl-0">
-          <h2 id="what-is-the-main-mission-of-mine-and-what-i-wanna-do">What is the main mission of mine and what i wanna do?</h2>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+          <h2 id="what-is-the-main-mission-of-mine-and-what-i-wanna-do">{{$data->title}}</h2>
+          <p>{{$data->article}}</p>
         </div>
       </div>
     </div>
