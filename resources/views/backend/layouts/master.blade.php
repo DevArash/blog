@@ -111,7 +111,7 @@
           </a>
         </li>         
         <li class="nav-item">
-          <a class="nav-link text-white @if ($pageName == 'Setting')bg-gradient-primary @endif" href="#">
+          <a class="nav-link text-white @if ($pageName == 'Settings')bg-gradient-primary @endif" href="{{route('dashboard.settings')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-symbols-outlined opacity-10">settings</i>
             </div>
