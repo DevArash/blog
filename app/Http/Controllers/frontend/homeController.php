@@ -40,7 +40,10 @@ class homeController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $post = post::findOrFail($id);
+        return view('frontend.home.post_details')
+            ->with('post', $post)
+            ->with('settings', setting::first());
     }
 
     /**
