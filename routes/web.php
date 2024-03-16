@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\settingController;
 use App\Http\Controllers\frontend\homeController;
 use App\Http\Controllers\ProfileController;
 use App\Models\about;
+use App\Models\setting;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
 // Frontend Routs
 // load home page
 Route::get('/',[homeController::class,'index'])->name('home');
@@ -25,13 +28,18 @@ Route::get('/',[homeController::class,'index'])->name('home');
 // load about page
 Route::get('/about', function(){
     return view('frontend.about.index')
-        ->with('data', about::first());
+        ->with('data', about::first())
+        ->with('settings', setting::first());;
 })->name('about');
 
 // load contact page
 Route::get('/contact', function(){
-    return view('frontend.contact.index');
+    return view('frontend.contact.index')
+        ->with('settings', setting::first());;
 })->name('contact');
+
+// show specified post details
+Route::get('post/{id}',[homeController::class,'show'])->name('home.post');
 
 
 // Backend Routs
