@@ -49,7 +49,7 @@
         </li>
         </ul>
         <p>{{$post->article}}</p>
-        <a href="post-elements.html" class="btn btn-outline-primary">Read More</a>
+        <a href="{{route('home.post',[$post->id])}}" class="btn btn-outline-primary">Read More</a>
     </div>
   </article>
   @endforeach
