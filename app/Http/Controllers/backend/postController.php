@@ -77,12 +77,13 @@ class postController extends Controller
         $post = post::findOrFail($id);
 
         $this->validate($request, [
+                "topic"=> "required|string",
                 'title'=> 'required|string|max:50',
                 'article'=>'required'        
             ]);
         
         $post->update([
-            'image'=> $request->image || $post->image,
+            'image'=> $request->image,
             'topic'=> $request->topic,
             'title'=>$request->title,
             'article'=> $request->article,
