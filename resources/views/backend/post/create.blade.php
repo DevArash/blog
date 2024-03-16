@@ -16,10 +16,7 @@
         <div class="row">
           <div class="col">
             <div class="input-group input-group-static mb-4">
-              <select name="topic" class="form-control" id="exampleFormControlSelect1">
-                <option value="">select topic</option>
-                <option>2</option>
-              </select>
+              <input name="topic" type="text" class="form-control" placeholder="Topic" aria-label="Username" aria-describedby="basic-addon1">
               @error('topic')
                 <p class="text-danger">{{$message}}</p>
               @enderror

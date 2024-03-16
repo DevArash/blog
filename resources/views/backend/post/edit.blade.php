@@ -17,10 +17,10 @@
         <div class="row">
           <div class="col">
             <div class="input-group input-group-static mb-4">
-              <select name="topic" class="form-control" id="exampleFormControlSelect1">
-                <option>{{$post->topic}}</option>
-                <option>2</option>
-              </select>
+              <input name="topic" type="text" class="form-control" placeholder="Topic" value="{{$post->topic}}" aria-label="Username" aria-describedby="basic-addon1">
+                @error('topic')
+                  <p class="text-danger">{{$message}}</p>
+                @enderror
             </div>
           </div>
           <div class="col">
@@ -32,7 +32,7 @@
           <div class="row">
             <div class="col">
               <div class="input-group input-group-dynamic mb-4">
-                <input name="title" type="text" class="form-control" placeholder='title' value={{$post->title}} aria-label="Username" aria-describedby="basic-addon1">
+                <input name="title" type="text" class="form-control" placeholder='title' value="{{$post->title}}" aria-label="Username" aria-describedby="basic-addon1">
                 @error('title')
                   <p class="text-danger">{{$message}}</p>
                 @enderror
