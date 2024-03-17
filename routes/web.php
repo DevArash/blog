@@ -84,6 +84,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Settings Route
     Route::get('/dashboard/settings',[settingController::class,'index'])->name('dashboard.settings');
     Route::put('/dashboard/settings/edit',[settingController::class,'update'])->name('dashboard.settings.update');
+
+    // User Route
+    // show list of user
+    Route::get('/dashboard/users',[ProfileController::class,'index'])->name('dashboard.users.index');
+    // show edit page
+    Route::get('/dashboard/users/edit/{id}',[ProfileController::class,'edit'])->name('dashboard.users.edit');
 });
 
 
