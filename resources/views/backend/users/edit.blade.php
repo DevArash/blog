@@ -6,7 +6,7 @@
     <div class="card-header pb-0 p-3">
       <div class="row">
         <div class="col-6 d-flex align-items-center">
-          <h6 class="mb-0">Create User</h6>
+          <h6 class="mb-0">Edit User</h6>
         </div>
       </div>
     </div>
@@ -61,7 +61,7 @@
             </div>
             <div class="col">
               <div class="input-group input-group-dynamic mb-4">
-                <fieldset>
+                <fieldset disabled>
                   <h6>Role</h6>
                   <label><input type="radio" name="role" value="admin" @if ($user->role == 'admin') checked @endif> Admin</label>
                   <label><input type="radio" name="role" value="author" @if ($user->role == 'author') checked @endif> Author</label>
@@ -82,7 +82,6 @@
         </div>
         <div class="col-6 text-left mt-4">
           <button type="submit" class="btn bg-gradient-dark mb-0"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;Update</button>
-          <a class="btn bg-gradient-faded-danger mb-0" href="{{route('dashboard.users.delete',[$user->id])}}" style="color: white;"><i class="material-icons text-sm">delete</i>&nbsp;&nbsp;Delete</a>
         </div>
       </form>
     </div>
