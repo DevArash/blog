@@ -94,7 +94,7 @@
         <li class="nav-item">
           <a class="nav-link text-white @if ($pageName == 'Edit User')bg-gradient-primary @endif" href="{{route('dashboard.users.edit',[ Auth::user()->id])}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-symbols-outlined opacity-10">person</i>
+              <i class="material-symbols-outlined opacity-10">person_edit</i>
             </div>
             <span class="nav-link-text ms-1">Edit User</span>
           </a>
