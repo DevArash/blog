@@ -100,7 +100,7 @@
           </a>
         </li> 
         <li class="nav-item">
-          <a class="nav-link text-white @if ($pageName == 'Create User')bg-gradient-primary @endif" href="#">
+          <a class="nav-link text-white @if ($pageName == 'Create User')bg-gradient-primary @endif" href="{{route('dashboard.users.create')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-symbols-outlined opacity-10">person_add</i>
             </div>
