@@ -19,20 +19,54 @@ class ProfileController extends Controller
     }
 
 
+    public function create()
+    {
+        return view('backend.users.create')
+            ->with('pageName','Create User');
+    }
+
     /**
      * Display the user's profile form.
      */
-    public function edit(Request $request): View
+    public function edit(Request $request, $id): View
     {
-        return view('profile.edit', [
-            'user' => $request->user(),
+        return view('backend.users.edit')
+            ->with('pageName', 'Edit User')
+            ->with('user', user::findOrFail($id));
+    }
+
+        /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            "name"=> "required|string",
+            "image"=>"required",      
+            "email"=> "required|string|max:50",
+            "password"=>"required|string",
+            "mobile"=>"required|string",
+            "role"=>"required",
+            "summary"=>"required|string"
         ]);
+        User::create([
+            "name"=> $request->name,
+            "image"=> $request->image,
+            "email"=> $request->email,
+            "password"=> $request->password,
+            "mobile"=> $request->mobile,
+            "role"=> $request->role,
+            "summary"=> $request->summary
+        ]);
+
+
+        return redirect()->route('dashboard.users.index');
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(ProfileUpdateRequest $request, $id): RedirectResponse
     {
         $request->user()->fill($request->validated());
 
@@ -40,29 +74,38 @@ class ProfileController extends Controller
             $request->user()->email_verified_at = null;
         }
 
-        $request->user()->save();
+        $user = User::findOrFail($id);
 
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        $this->validate($request, [
+            "name"=> "required|string",      
+            "email"=> "required|string|max:50",
+            "password"=>"required|string",
+            "mobile"=>"required|string",
+            "role"=>"required",
+            "summary"=>"required|string"     
+            ]);
+        
+        $user->update([
+            "name"=> $request->name,
+            "image"=> $request->image,
+            "email"=> $request->email,
+            "password"=> $request->password,
+            "mobile"=> $request->mobile,
+            "role"=> $request->role,
+            "summary"=> $request->summary
+        ]);
+
+        return redirect()->route('dashboard.users.index');
     }
 
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request, $id)
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
+        $user = User::findOrFail($id);
         $user->delete();
 
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        return redirect()->route('dashboard.users.index');
     }
 }
