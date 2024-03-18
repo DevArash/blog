@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 // Frontend Routs
 // load home page
 Route::get('/',[homeController::class,'index'])->name('home');
+// filter Based Topic
+Route::get('/{topic}',[homeController::class,'filterBasedTopic'])->name('home.topic');
 
 // load about page
 Route::get('/about', function(){
