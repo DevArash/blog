@@ -92,6 +92,14 @@
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Profile</h6>
         </li>
         <li class="nav-item">
+          <a class="nav-link text-white @if ($pageName == 'Edit User')bg-gradient-primary @endif" href="{{route('dashboard.users.edit',[ Auth::user()->id])}}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-symbols-outlined opacity-10">person</i>
+            </div>
+            <span class="nav-link-text ms-1">Edit User</span>
+          </a>
+        </li> 
+        <li class="nav-item">
           <a class="nav-link text-white @if ($pageName == 'Users List')bg-gradient-primary @endif" href="{{route('dashboard.users.index')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-symbols-outlined opacity-10">person</i>
@@ -148,12 +156,18 @@
 
             </div>
           </div>
-          <ul class="navbar-nav  justify-content-end">                     
-            <li class="nav-item d-flex align-items-center">
-              <a href="#" class="nav-link text-body font-weight-bold px-0">
-                <span class="d-sm-inline d-none">Admin</span>
-              </a>
-            </li>
+          <ul class="navbar-nav  justify-content-sm-around">    
+              <li class="nav-item d-flex align-items-center mx-3">
+                <a href="#" class="nav-link text-body font-weight-bold px-0">
+                  <i class="fa fa-user me-sm-1"></i>
+                  <span class="d-sm-inline d-none">{{Auth::user()->name}}</span>
+                </a>
+              </li>
+              <li class="nav-item d-flex align-items-center">
+                <a href="{{route('logout')}}" class="nav-link text-body font-weight-bold px-0">
+                  <span class="d-sm-inline d-none">Log Out</span>
+                </a>
+              </li>
           </ul>
         </div>
       </div>
