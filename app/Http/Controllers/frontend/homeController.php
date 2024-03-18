@@ -16,6 +16,7 @@ class homeController extends Controller
     {
         return view('frontend.home.index')
             ->with('settings', setting::first())
+            ->with('topics', post::paginate(15)->pluck('topic'))
             ->with('posts', post::simplePaginate(5));
     }
 
