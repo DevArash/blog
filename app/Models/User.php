@@ -57,4 +57,13 @@ class User extends Authenticatable
     {
         return $this->hasMany(post::class);
     }
+
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'image' => 'backend\img\blank_profile.png',
+    ];
 }
