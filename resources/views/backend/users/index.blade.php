@@ -45,7 +45,7 @@
                         <span class="text-secondary text-xs font-weight-bold">{{$user->updated_at}}</span>
                       </td>
                       <td class="align-middle">
-                        <a href="{{route('dashboard.users.edit', [$user->id])}}" class="badge badge-sm bg-gradient-success">Edit</a>
+                        <a href="{{route('dashboard.users.delete', [$user->id])}}" class="badge badge-sm bg-gradient-danger">Delete</a>
                       </td>
                     </tr>
                     @endforeach
