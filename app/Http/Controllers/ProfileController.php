@@ -14,7 +14,7 @@ class ProfileController extends Controller
 {
     public function index(){
         return view('backend.users.index')
-            ->with('users', User::all())
+            ->with('users', User::simplePaginate(10))
             ->with('pageName', 'Users');
     }
 
