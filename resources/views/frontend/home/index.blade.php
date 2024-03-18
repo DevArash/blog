@@ -8,7 +8,9 @@
       <div class="col-lg-9 mx-auto">
         <h1 class="mb-5">{{$settings->mainTitle}}</h1>
         <ul class="list-inline widget-list-inline">
-          <li class="list-inline-item"><a href="tags.html">all</a></li>
+          @foreach ($topics as $topic)
+            <li class="list-inline-item"><a href="tags.html">{{$topic}}</a></li>
+          @endforeach
         </ul>
       </div>
     </div>
