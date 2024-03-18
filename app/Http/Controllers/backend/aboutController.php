@@ -80,12 +80,18 @@ class aboutController extends Controller
             "article"=>"required"          
         ]);
         
+        if ($request->hasFile('image')){
         $about->update([
-            'image'=> $request->image || $about->image,
+            'image'=> $request->image,
             'title'=>$request->title,
             'article'=> $request->article,
         ]);
-
+        }else{
+            $about->update([
+                'title'=>$request->title,
+                'article'=> $request->article,
+            ]);
+        }
         return redirect()->route('dashboard.about');
     }
 

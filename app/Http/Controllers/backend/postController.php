@@ -82,13 +82,20 @@ class postController extends Controller
                 'article'=>'required'        
             ]);
         
+        if ($request->hasFile('image')){
         $post->update([
             'image'=> $request->image,
             'topic'=> $request->topic,
             'title'=>$request->title,
             'article'=> $request->article,
         ]);
-
+        }else{
+        $post->update([
+            'topic'=> $request->topic,
+            'title'=>$request->title,
+            'article'=> $request->article,
+        ]);
+    }
         return redirect()->route('dashboard.post');
     }
 

@@ -85,15 +85,26 @@ class ProfileController extends Controller
             "summary"=>"required|string"     
             ]);
         
-        $user->update([
-            "name"=> $request->name,
-            "image"=> $request->image,
-            "email"=> $request->email,
-            "password"=> $request->password,
-            "mobile"=> $request->mobile,
-            "role"=> $request->role,
-            "summary"=> $request->summary
-        ]);
+        if ($request->hasFile('image')){
+            $user->update([
+                "name"=> $request->name,
+                "image"=> $request->image,
+                "email"=> $request->email,
+                "password"=> $request->password,
+                "mobile"=> $request->mobile,
+                "role"=> $request->role,
+                "summary"=> $request->summary
+            ]);
+        }else{
+            $user->update([
+                "name"=> $request->name,
+                "email"=> $request->email,
+                "password"=> $request->password,
+                "mobile"=> $request->mobile,
+                "role"=> $request->role,
+                "summary"=> $request->summary
+            ]);
+        }
 
         return redirect()->route('dashboard.users.index');
     }
