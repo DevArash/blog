@@ -41,24 +41,33 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            "name"=> "required|string",
-            "image"=>"required",      
+            "name"=> "required|string",      
             "email"=> "required|string|max:50",
             "password"=>"required|string",
             "mobile"=>"required|string",
             "role"=>"required",
             "summary"=>"required|string"
         ]);
-        User::create([
-            "name"=> $request->name,
-            "image"=> $request->image,
-            "email"=> $request->email,
-            "password"=> $request->password,
-            "mobile"=> $request->mobile,
-            "role"=> $request->role,
-            "summary"=> $request->summary
-        ]);
-
+        if ($request->hasFile('image')){
+            User::create([
+                "name"=> $request->name,
+                "image"=> $request->image,
+                "email"=> $request->email,
+                "password"=> $request->password,
+                "mobile"=> $request->mobile,
+                "role"=> $request->role,
+                "summary"=> $request->summary
+            ]);
+        }else{
+            User::create([
+                "name"=> $request->name,
+                "email"=> $request->email,
+                "password"=> $request->password,
+                "mobile"=> $request->mobile,
+                "role"=> $request->role,
+                "summary"=> $request->summary
+            ]);
+        }
 
         return redirect()->route('dashboard.users.index');
     }
