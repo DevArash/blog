@@ -9,7 +9,7 @@
         <h1 class="mb-5">{{$settings->mainTitle}}</h1>
         <ul class="list-inline widget-list-inline">
           @foreach ($topics as $topic)
-            <li class="list-inline-item"><a href="tags.html">{{$topic}}</a></li>
+            <li class="list-inline-item"><a href="{{route('home.topic',[$topic])}}">{{$topic}}</a></li>
           @endforeach
         </ul>
       </div>
@@ -46,7 +46,7 @@
         </li>
         <li class="list-inline-item">
             <ul class="card-meta-tag list-inline">
-              <li class="list-inline-item"><a href="tags.html">{{$post->topic}}</a></li>
+              <li class="list-inline-item"><a href="{{route('home.topic',[$post->topic])}}">{{$post->topic}}</a></li>
             </ul>
         </li>
         </ul>
