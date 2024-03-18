@@ -20,6 +20,16 @@ class homeController extends Controller
             ->with('posts', post::simplePaginate(5));
     }
 
+    public function filterBasedTopic($topic)
+    {
+        $posts = post::where('topic', $topic)->simplePaginate(5);
+        return view('frontend.home.index')
+            ->with('topics', post::paginate(15)->pluck('topic'))
+            ->with('settings', setting::first())
+            ->with('posts', $posts);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
