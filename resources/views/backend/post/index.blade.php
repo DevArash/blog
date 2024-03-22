@@ -27,11 +27,11 @@
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="{{asset("backend/img/team-2.jpg")}}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
+                            <img src="{{asset($post->user->image)}}" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">John Michael</h6>
-                            <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                            <h6 class="mb-0 text-sm">{{$post->user->name}}</h6>
+                            <p class="text-xs text-secondary mb-0">{{$post->user->email}}</p>
                           </div>
                         </div>
                       </td>

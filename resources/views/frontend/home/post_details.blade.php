@@ -15,8 +15,8 @@
           <ul class="card-meta my-3 list-inline">
             <li class="list-inline-item">
               <a href="author-single.html" class="card-meta-author">
-                <img src="{{asset('frontend/images/john-doe.jpg')}}">
-                <span>Charls Xaviar</span>
+                <img src="{{asset($post->user->image)}}">
+                <span>{{$post->user->name}}</span>
               </a>
             </li>
             <li class="list-inline-item">
