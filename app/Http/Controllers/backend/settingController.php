@@ -66,17 +66,28 @@ class settingController extends Controller
             'youtube'=> 'required',
         ]);
 
-        $setting->update([
-            'logo' => $request->logo || $setting->logo,
-            'brandName' => $request->brandName,
-            'mainTitle' => $request->mainTitle,
-            'facebook'=> $request->facebook,
-            'twitter'=> $request->twitter,
-            'linkedin'=> $request->linkedin,
-            'youtube'=> $request->youtube,
+        if ($request->hasFile('logo')){
+            $setting->update([
+                'logo' => $request->logo,
+                'brandName' => $request->brandName,
+                'mainTitle' => $request->mainTitle,
+                'facebook'=> $request->facebook,
+                'twitter'=> $request->twitter,
+                'linkedin'=> $request->linkedin,
+                'youtube'=> $request->youtube,
 
-        ]);
+            ]);
+        }else{
+            $setting->update([
+                'brandName' => $request->brandName,
+                'mainTitle' => $request->mainTitle,
+                'facebook'=> $request->facebook,
+                'twitter'=> $request->twitter,
+                'linkedin'=> $request->linkedin,
+                'youtube'=> $request->youtube,
 
+            ]);
+        }
         return redirect()->route('dashboard.settings');
     }
 

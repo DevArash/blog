@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class postController extends Controller
@@ -45,6 +46,7 @@ class postController extends Controller
             "title"=>$request->title,
             "image"=>$request->image,
             "article"=>$request->article,
+            "user_id"=>Auth::user()->id,
         ]);
 
 
@@ -82,13 +84,20 @@ class postController extends Controller
                 'article'=>'required'        
             ]);
         
+        if ($request->hasFile('image')){
         $post->update([
             'image'=> $request->image,
             'topic'=> $request->topic,
             'title'=>$request->title,
             'article'=> $request->article,
         ]);
-
+        }else{
+        $post->update([
+            'topic'=> $request->topic,
+            'title'=>$request->title,
+            'article'=> $request->article,
+        ]);
+    }
         return redirect()->route('dashboard.post');
     }
 

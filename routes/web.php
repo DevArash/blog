@@ -86,6 +86,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Settings Route
     Route::get('/dashboard/settings',[settingController::class,'index'])->name('dashboard.settings');
     Route::put('/dashboard/settings/edit',[settingController::class,'update'])->name('dashboard.settings.update');
+
+    // User Route
+    // show list of user
+    Route::get('/dashboard/users',[ProfileController::class,'index'])->name('dashboard.users.index');
+    // show edit page
+    Route::get('/dashboard/users/edit/{id}',[ProfileController::class,'edit'])->name('dashboard.users.edit');
+    // create new user
+    Route::get('/dashboard/users/create',[ProfileController::class,'create'])->name('dashboard.users.create');
+    // store user
+    Route::post('/dashboard/users/store',[ProfileController::class,'store'])->name('dashboard.users.store');
+    // update user
+    Route::put('/dashboard/users/update/{id}',[ProfileController::class,'update'])->name('dashboard.users.update');
+    // delete user
+    Route::get('/dashboard/users/delete/{id}',[ProfileController::class,'destroy'])->name('dashboard.users.delete');
 });
 
 
