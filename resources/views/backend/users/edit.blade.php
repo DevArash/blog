@@ -81,7 +81,7 @@
           </div>
         </div>
         <div class="col-6 text-left mt-4">
-          <button type="submit" class="btn bg-gradient-dark mb-0"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;Update</button>
+          <button type="submit" class="btn bg-gradient-dark mb-0"><i class="material-icons text-sm">update</i>&nbsp;&nbsp;Update</button>
         </div>
       </form>
     </div>
