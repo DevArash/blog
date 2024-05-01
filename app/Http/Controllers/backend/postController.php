@@ -124,7 +124,7 @@ class postController extends Controller
     public function trash(){
         return view("backend.post.trashed")
             ->with("posts", Post::onlyTrashed()->orderBy("deleted_at","DESC")->simplePaginate(10))
-            ->with('pageName', 'Trashed Post');
+            ->with('pageName', 'Trashed Posts');
     }
 
     public function restore($id){
