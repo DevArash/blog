@@ -181,9 +181,9 @@
          
 
       <footer class="footer fixed-bottom text-center">
-              <div class="copyright text-center text-sm text-muted mb-lg-3">
+              <div class="copyright text-center text-sm text-muted mb-lg-3" style="cursor: default;">
                 made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Arash Kazemieh</a>
+                <a class="font-weight-bold">Arash Kazemieh</a>
               </div>
       </footer>
     </div>
