@@ -18,7 +18,7 @@ class postController extends Controller
 
         return view('backend.post.index')
             ->with("posts", Post::orderBy("updated_at","DESC")->simplePaginate(10))
-            ->with('pageName','Post');
+            ->with('pageName','Posts');
     }
 
     /**
