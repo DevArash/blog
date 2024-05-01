@@ -80,7 +80,7 @@
           </div>
         </div>
         <div class="col-6 text-left mt-4">
-          <button type="submit" class="btn bg-gradient-dark mb-0"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;Save</button>
+          <button type="submit" class="btn bg-gradient-dark mb-0"><i class="material-icons text-sm">add</i>&nbsp;&nbsp;create</button>
         </div>
       </form>
     </div>
