@@ -144,8 +144,8 @@
       <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard / @yield('pageName')</li>
+            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;" style="cursor: default;">Pages</a></li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard @if($pageName != 'Dashboard') / @yield('pageName')@endif</li>
           </ol>
         </nav>
 
@@ -158,7 +158,7 @@
           </div>
           <ul class="navbar-nav  justify-content-sm-around">    
               <li class="nav-item d-flex align-items-center mx-3">
-                <a href="#" class="nav-link text-body font-weight-bold px-0">
+                <a class="nav-link text-body font-weight-bold px-0" style="cursor: default;">
                   <i class="fa fa-user me-sm-1"></i>
                   <span class="d-sm-inline d-none">{{Auth::user()->name}}</span>
                 </a>
