@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="col-6 text-left mt-4">
-          <button type="submit" class="btn bg-gradient-faded-success mb-0" style="color: white;"><i class="material-icons text-sm">edit</i>&nbsp;&nbsp;Edit</button>
+          <button type="submit" class="btn bg-gradient-faded-success mb-0" style="color: white;"><i class="material-icons text-sm">update</i>&nbsp;&nbsp;update</button>
           <a class="btn bg-gradient-faded-danger mb-0" href="{{route('dashboard.post.delete',[$post->id])}}" style="color: white;"><i class="material-icons text-sm">delete</i>&nbsp;&nbsp;Delete</a>
         </div>
       </form>
