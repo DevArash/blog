@@ -131,6 +131,6 @@ class postController extends Controller
         $post = post::withTrashed()->where("id", $id)->first();
         $post->restore();
 
-        return redirect(route("dashboard.post.trashed"));
+        return redirect(route("dashboard.post"));
     }
 }
