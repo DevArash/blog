@@ -44,8 +44,8 @@
                         <span class="text-secondary text-xs font-weight-bold">{{$post->updated_at}}</span>
                       </td>
                       <td class="align-middle">
-                        <small><a href="{{route('dashboard.post.trashed.restore', [$post->id, $post->title])}}" class="badge badge-sm bg-gradient-success"><i class="material-symbols-outlined opacity-10">restore_from_trash</i></a></small>
-                        <small><a href="{{route('dashboard.post.trashed.destroy', [$post->id])}}" class="badge badge-sm bg-gradient-danger"><i class="material-symbols-outlined opacity-10">delete_forever</i></a></small>
+                        <small data-bs-toggle="tooltip" data-bs-placement="top" title="Restore Post"><a href="{{route('dashboard.post.trashed.restore', [$post->id, $post->title])}}" class="badge badge-sm bg-gradient-success"><i class="material-symbols-outlined opacity-10">restore_from_trash</i></a></small>
+                        <small data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Post"><a href="{{route('dashboard.post.trashed.destroy', [$post->id])}}" class="badge badge-sm bg-gradient-danger"><i class="material-symbols-outlined opacity-10">delete_forever</i></a></small>
                       </td>
                     </tr>
                     @endforeach
